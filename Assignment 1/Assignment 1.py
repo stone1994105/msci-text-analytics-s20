@@ -49,6 +49,7 @@ def split_data(data, training_size, test_size):
 
 
 def main():
+    random.seed(2020)
     save_path = "C:\\Users\\andre\\msci-text-analytics-s20\\Assignment 1\\"
     with open ("C:\\Users\\andre\\msci-text-analytics-s20\\pos.txt") as f:
         pos_lines = f.readlines()
