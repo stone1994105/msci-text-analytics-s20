@@ -1,18 +1,16 @@
 import random
-#import numpy as np
 
 with open ("C:\\Users\\andre\\msci-text-analytics-s20\\Assignment 1\\stopwords.txt") as f:
     stop_words = f.read()
 
 # Remove the following special characters
 # Note: Use a quadruple backslash (\\\\) to remove the backslash
-special_characters = '[,.-?!"#$%&(*)+/:;<=>@\[\]\\\\^`{|}~\t\n]+' 
+special_characters = '[\'\",.-?!"#$%&(*)+/:;<=>@\[\]\\\\^`{|}~\t\n]+' 
 
 def tokenize(text, characters, lower = 1, with_stop_words = 1):
     # Remove the special characters
-    # set punctuations as separate tokens
     for c in characters:
-        text = text.replace(c," "+c+" ")
+        text = text.replace(c," ")
     # Split into tokens
     if lower == 0:
         tokens = text.split()
@@ -50,23 +48,35 @@ def split_data(data, training_size, test_size):
 
 def main():
     random.seed(2020)
-    save_path = "C:\\Users\\andre\\msci-text-analytics-s20\\Assignment 1\\"
+    save_path = "C:\\Users\\andre\\msci-text-analytics-s20\\Assignment 1\\data\\"
     with open ("C:\\Users\\andre\\msci-text-analytics-s20\\pos.txt") as f:
         pos_lines = f.readlines()
     with open ("C:\\Users\\andre\\msci-text-analytics-s20\\neg.txt") as f:
         neg_lines = f.readlines()
 
     data = []
-    data_no_stopword = []
+    data_ns = []
 
     for line in pos_lines:
         tokens = tokenize(line, special_characters, lower = 1, with_stop_words = 1)
-        tokens_no_stopword = tokenize(line, special_characters, lower = 1, with_stop_words = 0)
+        tokens_ns = tokenize(line, special_characters, lower = 1, with_stop_words = 0)
         data.append(tokens)
-        data_no_stopword.append(tokens_no_stopword)
+        data_ns.append(tokens_ns)
 
-    pos_train, pos_test, pos_validation = split_data(data, 0.8, 0.1)
-    pos_train_no_stopword, pos_test_no_stopword, pos_validation_no_stopword = split_data(data_no_stopword, 0.8, 0.1)
+    pos_train, pos_test, pos_vali = split_data(data, 0.8, 0.1)
+    pos_train_ns, pos_test_ns, pos_vali_ns = split_data(data_ns, 0.8, 0.1)
+
+    data = []
+    data_ns = []
+
+    for line in neg_lines:
+        tokens = tokenize(line, special_characters, lower = 1, with_stop_words = 1)
+        tokens_ns = tokenize(line, special_characters, lower = 1, with_stop_words = 0)
+        data.append(tokens)
+        data_ns.append(tokens_ns)
+
+    neg_train, neg_test, neg_vali = split_data(data, 0.8, 0.1)
+    neg_train_ns, neg_test_ns, neg_vali_ns = split_data(data_ns, 0.8, 0.1)
 
     with open (save_path + "pos_train.csv", "w") as f :
         for sublist in pos_train:
@@ -78,44 +88,26 @@ def main():
             for item in sublist:
                 f.write(item + ',')
             f.write('\n')
-    with open (save_path + "pos_validation.csv", "w") as f :
-        for sublist in pos_validation:
+    with open (save_path + "pos_vali.csv", "w") as f :
+        for sublist in pos_vali:
             for item in sublist:
                 f.write(item + ',')
             f.write('\n')
-    with open (save_path + "pos_train_no_stopword.csv", "w") as f :
-        for sublist in pos_train_no_stopword:
+    with open (save_path + "pos_train_ns.csv", "w") as f :
+        for sublist in pos_train_ns:
             for item in sublist:
                 f.write(item + ',')
             f.write('\n')
-    with open (save_path + "pos_test_no_stopword.csv", "w") as f :
-        for sublist in pos_test_no_stopword:
+    with open (save_path + "pos_test_ns.csv", "w") as f :
+        for sublist in pos_test_ns:
             for item in sublist:
                 f.write(item + ',')
             f.write('\n')
-    with open (save_path + "pos_validation_no_stopword.csv", "w") as f :
-        for sublist in pos_validation_no_stopword:
+    with open (save_path + "pos_vali_ns.csv", "w") as f :
+        for sublist in pos_vali_ns:
             for item in sublist:
                 f.write(item + ',')
             f.write('\n')
-    #np.savetxt(save_path + "pos_train.csv", pos_train, delimiter=",", fmt='%s')
-    #np.savetxt(save_path + "pos_test.csv", pos_test, delimiter=",", fmt='%s')
-    #np.savetxt(save_path + "pos_validation.csv", pos_validation, delimiter=",", fmt='%s')
-    #np.savetxt(save_path + "pos_train_no_stopword.csv", pos_train_no_stopword, delimiter=",", fmt='%s')
-    #np.savetxt(save_path + "pos_test_no_stopword.csv", pos_test_no_stopword, delimiter=",", fmt='%s')
-    #np.savetxt(save_path + "pos_validation_no_stopword.csv", pos_validation_no_stopword, delimiter=",", fmt='%s')
-
-    data = []
-    data_no_stopword = []
-
-    for line in neg_lines:
-        tokens = tokenize(line, special_characters, lower = 1, with_stop_words = 1)
-        tokens_no_stopword = tokenize(line, special_characters, lower = 1, with_stop_words = 0)
-        data.append(tokens)
-        data_no_stopword.append(tokens_no_stopword)
-
-    neg_train, neg_test, neg_validation = split_data(data, 0.8, 0.1)
-    neg_train_no_stopword, neg_test_no_stopword, neg_validation_no_stopword = split_data(data_no_stopword, 0.8, 0.1)
 
     with open (save_path + "neg_train.csv", "w") as f :
         for sublist in neg_train:
@@ -127,33 +119,26 @@ def main():
             for item in sublist:
                 f.write(item + ',')
             f.write('\n')
-    with open (save_path + "neg_validation.csv", "w") as f :
-        for sublist in neg_validation:
+    with open (save_path + "neg_vali.csv", "w") as f :
+        for sublist in neg_vali:
             for item in sublist:
                 f.write(item + ',')
             f.write('\n')
-    with open (save_path + "neg_train_no_stopword.csv", "w") as f :
-        for sublist in neg_train_no_stopword:
+    with open (save_path + "neg_train_ns.csv", "w") as f :
+        for sublist in neg_train_ns:
             for item in sublist:
                 f.write(item + ',')
             f.write('\n')
-    with open (save_path + "neg_test_no_stopword.csv", "w") as f :
-        for sublist in neg_test_no_stopword:
+    with open (save_path + "neg_test_ns.csv", "w") as f :
+        for sublist in neg_test_ns:
             for item in sublist:
                 f.write(item + ',')
             f.write('\n')
-    with open (save_path + "neg_validation_no_stopword.csv", "w") as f :
-        for sublist in neg_validation_no_stopword:
+    with open (save_path + "neg_vali_ns.csv", "w") as f :
+        for sublist in neg_vali_ns:
             for item in sublist:
                 f.write(item + ',')
             f.write('\n')
-    #np.savetxt(save_path + "neg_train.csv", neg_train, delimiter=",", fmt='%s')
-    #np.savetxt(save_path + "neg_test.csv", neg_test, delimiter=",", fmt='%s')
-    #np.savetxt(save_path + "neg_validation.csv", neg_validation, delimiter=",", fmt='%s')
-    #np.savetxt(save_path + "neg_train_no_stopword.csv", neg_train_no_stopword, delimiter=",", fmt='%s')
-    #np.savetxt(save_path + "neg_test_no_stopword.csv", neg_test_no_stopword, delimiter=",", fmt='%s')
-    #np.savetxt(save_path + "neg_validation_no_stopword.csv", neg_validation_no_stopword, delimiter=",", fmt='%s')
-
 
 if __name__ == "__main__":
     main()
