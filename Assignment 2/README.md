@@ -1,5 +1,5 @@
 # MSCI-641 Assignment 2 Report
-Name: Tianyu Shi  Student ID: 20570373
+Name: Tianyu Sh\Student ID: 20570373
 | Stopwords Removed  | Text Features    | Accuracy (test set) |
 | ------------------ | ---------------- | ------------------- |
 | yes                | unigrams         |      80.13%         |
