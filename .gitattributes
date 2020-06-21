@@ -1,4 +1,2 @@
-*.psd filter=lfs diff=lfs merge=lfs -text
 *.pkl filter=lfs diff=lfs merge=lfs -text
 *.model filter=lfs diff=lfs merge=lfs -text
-w2v.model filter=lfs diff=lfs merge=lfs -text
