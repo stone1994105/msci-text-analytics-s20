@@ -18,4 +18,6 @@ Bad similar:
 ('stupid', 0.5742812752723694), ('fake', 0.5486272573471069), ('obvious', 0.5481297969818115),
 ('scary', 0.5480870008468628), ('sad', 0.5468292832374573), ('wasy', 0.5418967604637146),
 ('lame', 0.5371614098548889), ('harsh', 0.5339930057525635), ('positive', 0.5308337807655334),
-('shabby', 0.5269465446472168), ('disappointing', 0.5255157947540283)]
+('shabby', 0.5269465446472168), ('disappointing', 0.5255157947540283)]<br />
+
+Most of the words similar to 'good' are positive, and most of the words similar to 'bad' are negative. However, there are exceptions such as 'poor', 'terrible', and 'bad' in the good similar. These mis-classified words are all adjectives that could be used to substitute 'good' in the same context giving the opposite meaning. Then these words are considered similar to 'good' due to the similar context structure. The analysis is the same for the positive words that show up in the bad similar.
