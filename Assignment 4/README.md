@@ -3,7 +3,6 @@ Name: Tianyu Shi<br />
 Student ID: 20570373<br />
 
 |                                     | Sigmoid |  ReLu  |  Tanh  |
-|                                     |      Test Accuracy        |
 | ----------------------------------- | ------------------------- |
 | No regularization/dropout           |         |        |        |
 | L2-regularization 0.01              |         |        |        |
