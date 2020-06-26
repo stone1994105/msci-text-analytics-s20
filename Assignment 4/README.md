@@ -6,6 +6,6 @@ Student ID: 20570373<br />
 | ---------------------------------------- | ------- | ------- | ------- |
 | No regularization No dropout             |         |         |         |
 | L2-regularization = 0.01                 |         |         |         |
-| Dropout = 0.3                            |         |         |         |
-| Dropout = 0.5                            |         |         |         |
 | L2-regularization = 0.01, Dropout = 0.3  |         |         |         |
+| L2-regularization = 0.01, Dropout = 0.4  |         |         |         |
+| L2-regularization = 0.01, Dropout = 0.5  |         |         |         |
