@@ -19,3 +19,4 @@ Student ID: 20570373<br />
 | L2-regularization = 0.001, Dropout = 0.4  |  0.815  |  0.814  |  0.814  |
 | L2-regularization = 0.001, Dropout = 0.5  |  0.814  |  0.813  |  0.814  |
 | L2-regularization = 0.001, Dropout = 0.6  |  0.814  |  0.813  |  0.815  |
+
