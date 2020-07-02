@@ -28,6 +28,10 @@ https://towardsdatascience.com/comparison-of-activation-functions-for-deep-neura
 https://towardsdatascience.com/complete-guide-of-activation-functions-34076e95d044
 
 ## Effect of L2-norm regularization:
-
+The result in the table shows that regularization could increase the accuracy. The L2-norm regularization term penalizes large weight values, and prevents the neural network from overfitting.
 
 ## Effect of dropout:
+
+Dropout is also a regularization method that randomly ignores some number of layer outputs, and it can also improve accuracy.
+
+For furthur study, the optimal combination of L2-norm regularization and dropout rate should be investigated.
