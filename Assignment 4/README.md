@@ -23,8 +23,8 @@ Student ID: 20570373<br />
 Effect of activation function:
 Let's compare the three cases with no dropout, and the ReLU activation function has higher accuracy then the other two activation functions. One benefit of ReLu is that it converges faster than sigmoid and tanh. Another good point of using ReLU is that it has no vanishing gradient problems.
 
-For more details, here are some links that compares different activation functions.
-https://towardsdatascience.com/comparison-of-activation-functions-for-deep-neural-networks-706ac4284c8a
+For more details, here are some links that compares different activation functions<br />
+https://towardsdatascience.com/comparison-of-activation-functions-for-deep-neural-networks-706ac4284c8a<br />
 https://towardsdatascience.com/complete-guide-of-activation-functions-34076e95d044
 
 Effect of L2-norm regularization:
