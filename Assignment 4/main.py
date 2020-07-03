@@ -16,12 +16,12 @@ from keras.utils import to_categorical
 from keras.models import Sequential
 
 def load_data(file_path):
-	pos_train = pd.read_csv(os.path.join(file_path + "\\pos_train.csv"), sep = 'delimiter', names = ['Review'], engine = 'python')
-	neg_train = pd.read_csv(os.path.join(file_path + "\\neg_train.csv"), sep = 'delimiter', names = ['Review'], engine = 'python')
-	pos_test = pd.read_csv(os.path.join(file_path + "\\pos_test.csv"), sep = 'delimiter', names = ['Review'], engine = 'python')
-	neg_test = pd.read_csv(os.path.join(file_path + "\\neg_test.csv"), sep = 'delimiter', names = ['Review'], engine = 'python')
-	pos_vali = pd.read_csv(os.path.join(file_path + "\\pos_vali.csv"), sep = 'delimiter', names = ['Review'], engine = 'python')
-	neg_vali = pd.read_csv(os.path.join(file_path + "\\neg_vali.csv"), sep = 'delimiter', names = ['Review'], engine = 'python')
+	pos_train = pd.read_csv(os.path.join(file_path,"pos_train.csv"), sep = 'delimiter', names = ['Review'], engine = 'python')
+	neg_train = pd.read_csv(os.path.join(file_path,"neg_train.csv"), sep = 'delimiter', names = ['Review'], engine = 'python')
+	pos_test = pd.read_csv(os.path.join(file_path,"pos_test.csv"), sep = 'delimiter', names = ['Review'], engine = 'python')
+	neg_test = pd.read_csv(os.path.join(file_path,"neg_test.csv"), sep = 'delimiter', names = ['Review'], engine = 'python')
+	pos_vali = pd.read_csv(os.path.join(file_path,"pos_vali.csv"), sep = 'delimiter', names = ['Review'], engine = 'python')
+	neg_vali = pd.read_csv(os.path.join(file_path,"neg_vali.csv"), sep = 'delimiter', names = ['Review'], engine = 'python')
 	return pos_train,neg_train,pos_test,neg_test,pos_vali,neg_vali
 
 def main(file_path):
