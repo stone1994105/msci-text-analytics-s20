@@ -32,7 +32,9 @@ def main(file_path,classifier):
 	seq = loaded_tokenizer.texts_to_sequences(lines)
 	padded = pad_sequences(seq,maxlen=94)
 	pred = model.predict(padded)
-	print(pred)
+	print("probability:\n",pred)
+	pred_class = np.argmax(model.predict(padded), axis = -1)
+	print("class:\n",pred_class)
 
 
 if __name__ == "__main__":
